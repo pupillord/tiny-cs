@@ -1,4 +1,24 @@
-* 服务端数据返回，能否处理好输出内容到客户端时直接输出
-* 数据类型是否需要区分（返回的数据是否可以全部用字符串直接输出到终端）
-* 是否需要提供数据库变更需求
-* session 的抽象如何抽象
+**Tiny Client/Server**
+
+a tiny client and server for tinysql.
+
+**Start**
+
+```
+// start server 
+cd sql-server
+go run .
+
+// start client 
+cd sql-client
+go run .
+
+// run some sql in client
+create table student(int id, varchar name);
+select * from student;
+```
+
+**Note**
+* There is no data in server, so you will only get "the query has been completed" for any sql query.
+* The result in server are defined in func `handleQuery` of `conn.go`.
+* The rules of protocol in Client/Server can be found in `protocol.go`
